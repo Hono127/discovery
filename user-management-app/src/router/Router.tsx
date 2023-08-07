@@ -1,4 +1,4 @@
-import React, { FC, memo } from "react"
+import { FC, memo } from "react"
 import { Route, Routes } from "react-router-dom"
 import Login from "../components/pages/Login"
 import UserManagement from "../components/pages/UserManagement"
