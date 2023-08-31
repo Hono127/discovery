@@ -1,8 +1,14 @@
 import { HamburgerIcon } from '@chakra-ui/icons'
-import { IconButton, useDisclosure } from '@chakra-ui/react'
+import { IconButton } from '@chakra-ui/react'
+import { FC, memo } from 'react';
 
-const MenuIconButton = () => {
-  const { onOpen } = useDisclosure();
+type Props = {
+  onOpen: () => void;
+}
+
+const MenuIconButton: FC<Props> = memo((props) => {
+
+  const { onOpen } = props
   return (
     <IconButton
       aria-label='メニューボタン'
@@ -10,8 +16,9 @@ const MenuIconButton = () => {
       display={{ base: "block", md: "none" }}
       variant="unstyled"
       size="lg"
-      onClick={onOpen} />
+      onClick={onOpen}
+    />
   )
-}
+})
 
 export default MenuIconButton

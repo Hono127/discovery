@@ -15,7 +15,7 @@ const HomeRouter = () => [
   {
     path: "setting",
     children: <Setting />
-  }
+  },
 ];
 
 export default HomeRouter
