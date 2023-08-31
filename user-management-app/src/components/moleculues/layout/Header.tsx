@@ -14,11 +14,29 @@ const Header: FC = memo(() => {
   const onClickSetting = () => navigate('/home/setting');
   return (
     <>
-      <Flex as="nav" bg="teal.500" color="gray50" align="center" justify="space-between" padding={{ base: 3, md: 5 }}>
-        <Heading as="a" fontSize={{ base: "md", md: "lg" }} _hover={{ cursor: "pointer" }} onClick={onClickHome}>ユーザー管理アプリ</Heading>
+      <Flex
+        as="nav"
+        bg="teal.500"
+        color="gray50"
+        align="center"
+        justify="space-between"
+        padding={{ base: 3, md: 5 }}
+      >
+        <Heading
+          as="a"
+          fontSize={{ base: "md", md: "lg" }}
+          _hover={{ cursor: "pointer" }}
+          onClick={onClickHome}
+        >
+          ユーザー管理アプリ
+        </Heading>
         <Flex fontSize="sm" display={{ base: "none", md: "flex" }}>
-          <Box pr="3"><Link onClick={onClickUserManagement}>ユーザ一覧</Link></Box>
-          <Box><Link onClick={onClickSetting}>設定</Link></Box>
+          <Box pr="3">
+            <Link onClick={onClickUserManagement}>ユーザ一覧</Link>
+          </Box>
+          <Box>
+            <Link onClick={onClickSetting}>設定</Link>
+          </Box>
         </Flex>
         <MenuIconButton onOpen={onOpen} />
       </Flex>

@@ -11,11 +11,11 @@ import HeaderLayout from "../components/templetes/HeaderLayout"
 const Router: FC = memo(() => {
   return (
     <Routes>
-      <Route path="/" element={<Login />}></Route>
+      <Route path="/" element={<Login />} />
       <Route path="/home" element={<HeaderLayout><Home /></HeaderLayout>} />
       <Route path="/home/user_management" element={<HeaderLayout><UserManagement /></HeaderLayout>} />
       <Route path="/home/setting" element={<HeaderLayout><Setting /></HeaderLayout>} />
-      <Route path="*" element={<NotFound />}></Route>
+      <Route path="*" element={<NotFound />} />
     </Routes>
 
 

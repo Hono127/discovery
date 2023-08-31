@@ -1,15 +1,8 @@
 import { Button, Drawer, DrawerBody, DrawerContent, DrawerOverlay } from '@chakra-ui/react'
 import { FC, memo } from 'react'
+import { PageMoveProps } from '../../types/type'
 
-type Props = {
-  onClose: () => void
-  isOpen: boolean
-  onClickSetting: () => void
-  onClickHome: () => void
-  onClickUserManagement: () => void
-}
-
-const MenuDrawer: FC<Props> = memo((props) => {
+const MenuDrawer: FC<PageMoveProps> = memo((props) => {
 
   const { onClose, isOpen, onClickHome, onClickUserManagement, onClickSetting } = props;
   return (
