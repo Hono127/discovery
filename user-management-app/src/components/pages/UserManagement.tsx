@@ -1,32 +1,54 @@
-import { Box, Grid, GridItem, Image, Stack, Wrap, WrapItem } from '@chakra-ui/react'
-import React, { FC, memo } from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+import {
+  Center,
+  Spinner,
+  Wrap,
+  WrapItem,
+  useDisclosure,
+} from "@chakra-ui/react";
+import { FC, memo, useCallback, useEffect } from "react";
+import UserCard from "../organisms/user/UserCard";
+import { useAllUsers } from "../../hooks/useAllUsers";
+import UserModal from "../moleculues/modal/UserModal";
+import { useSelectUsers } from "../../hooks/useSelectUsers";
 
 const UserManagement: FC = memo(() => {
+  const { getUsers, users, loading } = useAllUsers();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { onSelectUser, selectedUser } = useSelectUsers();
+
+  const onClickUser = useCallback(
+    (id: number) => {
+      onSelectUser({ id, users, onOpen });
+    },
+    [users, onSelectUser, onOpen]
+  );
+
+  useEffect(() => getUsers(), []);
   return (
+    <>
+      {loading ? (
+        <Center>
+          <Spinner />
+        </Center>
+      ) : (
+        <Wrap p={{ base: 4, md: 10 }} spacing="5">
+          {users.map((user) => (
+            <WrapItem key={user.id}>
+              <UserCard
+                id={user.id}
+                imageUrl="https://source.unsplash.com/random"
+                userName={user.username}
+                fullName={user.name}
+                onClick={onClickUser}
+              />
+            </WrapItem>
+          ))}
+          <UserModal isOpen={isOpen} onClose={onClose} user={selectedUser} />
+        </Wrap>
+      )}
+    </>
+  );
+});
 
-    <Wrap>
-      <WrapItem>
-        <Box w="260px" h="260px" bg="white" borderRadius="10px" shadow="md">
-          <Stack textAlign="center">
-            <Image borderRadius="full" boxSize="160px" src='https://source.unsplash.com/random' />
-          </Stack>
-        </Box>
-      </WrapItem>
-    </Wrap>
-
-    // <Grid templateColumns={{ base: "repeat(1,1fr)", sm: "repeat(1,1fr)", md: "repeat(3,1fr)", lg: "repeat(5,1fr)" }}
-    //   gap={4}
-    //   px={5}
-    // >
-    //   <GridItem w="100%" h='10' bg='blue.500' />
-    //   <GridItem w="100%" h='10' bg='blue.500' />
-    //   <GridItem w="100%" h='10' bg='blue.500' />
-    //   <GridItem w="100%" h='10' bg='blue.500' />
-    //   <GridItem w="100%" h='10' bg='blue.500' />
-    // </Grid>
-
-
-  )
-})
-
-export default UserManagement
+export default UserManagement;

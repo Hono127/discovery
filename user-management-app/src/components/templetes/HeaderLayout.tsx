@@ -1,9 +1,9 @@
-import React, { FC, ReactNode, memo } from 'react'
-import Header from '../moleculues/layout/Header'
+import { FC, ReactNode, memo } from "react";
+import Header from "../moleculues/layout/Header";
 
 type Props = {
   children: ReactNode;
-}
+};
 
 const HeaderLayout: FC<Props> = memo((props) => {
   const { children } = props;
@@ -12,7 +12,7 @@ const HeaderLayout: FC<Props> = memo((props) => {
       <Header />
       {children}
     </>
-  )
-})
+  );
+});
 
-export default HeaderLayout
+export default HeaderLayout;

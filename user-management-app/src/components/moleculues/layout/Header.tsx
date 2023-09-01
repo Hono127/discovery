@@ -1,17 +1,15 @@
-import {
-  Box, Flex, Heading, Link, useDisclosure
-} from '@chakra-ui/react';
-import { FC, memo } from 'react'
-import MenuIconButton from '../../atoms/button/MenuIconButton';
-import MenuDrawer from '../MenuDrawer';
-import { useNavigate } from 'react-router-dom';
+import { Box, Flex, Heading, Link, useDisclosure } from "@chakra-ui/react";
+import { FC, memo } from "react";
+import MenuIconButton from "../../atoms/button/MenuIconButton";
+import MenuDrawer from "../MenuDrawer";
+import { useNavigate } from "react-router-dom";
 
 const Header: FC = memo(() => {
   const { isOpen, onClose, onOpen } = useDisclosure();
   const navigate = useNavigate();
-  const onClickHome = () => navigate('/home');
-  const onClickUserManagement = () => navigate('/home/user_management');
-  const onClickSetting = () => navigate('/home/setting');
+  const onClickHome = () => navigate("/home");
+  const onClickUserManagement = () => navigate("/home/user_management");
+  const onClickSetting = () => navigate("/home/setting");
   return (
     <>
       <Flex
@@ -49,6 +47,6 @@ const Header: FC = memo(() => {
       />
     </>
   );
-})
+});
 
-export default Header
+export default Header;
