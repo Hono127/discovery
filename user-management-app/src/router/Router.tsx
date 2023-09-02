@@ -6,37 +6,40 @@ import Setting from "../components/pages/Setting";
 import NotFound from "../components/pages/NotFound";
 import Home from "../components/pages/Home";
 import HeaderLayout from "../components/templetes/HeaderLayout";
+import { LoginUserPrivider } from "../providers/LoginUserProvider";
 
 const Router: FC = memo(() => {
   return (
-    <Routes>
-      <Route path="/" element={<Login />} />
-      <Route
-        path="/home"
-        element={
-          <HeaderLayout>
-            <Home />
-          </HeaderLayout>
-        }
-      />
-      <Route
-        path="/home/user_management"
-        element={
-          <HeaderLayout>
-            <UserManagement />
-          </HeaderLayout>
-        }
-      />
-      <Route
-        path="/home/setting"
-        element={
-          <HeaderLayout>
-            <Setting />
-          </HeaderLayout>
-        }
-      />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+    <LoginUserPrivider>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route
+          path="/home"
+          element={
+            <HeaderLayout>
+              <Home />
+            </HeaderLayout>
+          }
+        />
+        <Route
+          path="/home/user_management"
+          element={
+            <HeaderLayout>
+              <UserManagement />
+            </HeaderLayout>
+          }
+        />
+        <Route
+          path="/home/setting"
+          element={
+            <HeaderLayout>
+              <Setting />
+            </HeaderLayout>
+          }
+        />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </LoginUserPrivider>
   );
 });
 
