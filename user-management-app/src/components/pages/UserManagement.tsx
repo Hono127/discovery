@@ -11,11 +11,13 @@ import UserCard from "../organisms/user/UserCard";
 import { useAllUsers } from "../../hooks/useAllUsers";
 import UserModal from "../moleculues/modal/UserModal";
 import { useSelectUsers } from "../../hooks/useSelectUsers";
+import { useLoginUser } from "../../hooks/useLoginUser";
 
 const UserManagement: FC = memo(() => {
   const { getUsers, users, loading } = useAllUsers();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { onSelectUser, selectedUser } = useSelectUsers();
+  const { loginUser } = useLoginUser();
 
   const onClickUser = useCallback(
     (id: number) => {
@@ -44,7 +46,12 @@ const UserManagement: FC = memo(() => {
               />
             </WrapItem>
           ))}
-          <UserModal isOpen={isOpen} onClose={onClose} user={selectedUser} />
+          <UserModal
+            isOpen={isOpen}
+            onClose={onClose}
+            user={selectedUser}
+            isAdmin={loginUser?.isAdmin}
+          />
         </Wrap>
       )}
     </>
