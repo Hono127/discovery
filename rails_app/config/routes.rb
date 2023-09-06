@@ -3,4 +3,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+
+  # 下記の記述はhttp://127.0.0.1:3000/posts/createとなる
+  resources :posts, only: [:index, :new, :create]
 end
