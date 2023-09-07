@@ -9,6 +9,7 @@ class PostsController < ApplicationController
 
   # 下記はPostというオブジェクトが作成される(titleとcontentを含んだオブジェクトが作成される)
   # 新しい掲示板のフォーム用のコントローラー設定
+
   # 定義した名前(ここでいうdef直後の「new」)は/app/views/posts/new.html.erbのnewと名前を一致させる
   def new
     @post = Post.new
@@ -36,8 +37,8 @@ class PostsController < ApplicationController
       render :edit
     end
   end
-
-# privateをつけることでその下にdefされたメソッドはこのファイルでしか呼び出せなくなる！（厳格モードみたいな？）
+  
+  # privateをつけることでその下にdefされたメソッドはこのファイルでしか呼び出せなくなる！（厳格モードみたいな？）
   private
   def post_params
     params.require(:post).permit(:title, :content)

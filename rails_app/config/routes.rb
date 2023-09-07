@@ -7,4 +7,5 @@ Rails.application.routes.draw do
 
   # 下記の記述はhttp://127.0.0.1:3000/posts/となる
   resources :posts, only: [:index, :new, :create, :edit, :destroy, :update, ]
+
 end
