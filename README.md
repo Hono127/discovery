@@ -1,3 +1,16 @@
+### ブランチ概要
+
+- main
+
+  - リリース用ブランチ
+
+- develop
+
+  - 開発用ブランチ
+
+- feature
+  - 機能追加用
+
 ### blog_next_ts_docker
 
 - blog 構築用
