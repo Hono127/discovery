@@ -72,6 +72,12 @@
 - vue チュートリアル
 - vue
 
+### next-todo-app
+
+- next13 の新機能堪能
+- next.js,ts
+- json-server は`npm run json-server`で立ち上げることを忘れずに
+
 <hr>
 
 てすと
