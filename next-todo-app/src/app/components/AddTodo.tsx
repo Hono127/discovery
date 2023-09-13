@@ -23,7 +23,10 @@ const AddTodo = () => {
           setTaskTitle(e.target.value)
         }
       />
-      <button className="w-full px-4 py-2 text-white bg-blue-500 rounded-md transform hover:bg-blue-400 hover:scale-95 duration-200">
+      <button
+        className="w-full px-4 py-2 text-white bg-blue-500 rounded-md transform hover:bg-blue-400 hover:scale-95 duration-200"
+        disabled={!taskTitle}
+      >
         追加
       </button>
     </form>
