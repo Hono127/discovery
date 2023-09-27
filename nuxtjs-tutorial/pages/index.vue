@@ -1,10 +1,18 @@
 <template lang="pug">
-h1 Hello World
+div 
+  h1 Hello World
+  <Footer />
+  <Header />
 </template>
 
 <script>
-import Vue from 'vue'
+import Footer from "../components/Footer.vue"
+import Header from "../components/Header.vue"
 
-export default Vue.extend({
-  name: 'IndexPage'
-})
+export default {
+  components: {
+    Header,
+    Footer
+  }
+};
+</script>
