@@ -1,34 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link rel="stylesheet" href="./css/style.css">
-</head>
-<body>
-  <div id="app">
-    <form v-on:submit.prevent>
-      <input type="text" v-model="newItem ">
-      <button v-on:click="addItem">add</button>
-      <br>
-    </form>
-    <!-- <input type="text" v-model="newItem"> -->
-    <ul>
-      <li v-for="(todo,i) in todos">
-        <input type="checkbox" v-model="todo.isDone">
-        <span v-bind:class="{done:todo.isDone}">{{ todo.item }}</span>
-        <button v-on:click="deleteItem(i)">削除</button>
-      </li>
-    </ul>
-    <!-- <p>{{ $data }}</p> -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <section>
+        <h2>todo簡易アプリ</h2>
+        <form v-on:submit.prevent>
+          <input type="text" v-model="newItem " />
+          <button v-on:click="addItem">add</button>
+          <br />
+        </form>
+        <!-- <input type="text" v-model="newItem"> -->
+        <ul>
+          <li v-for="(todo,i) in todos">
+            <input type="checkbox" v-model="todo.isDone" />
+            <span v-bind:class="{done:todo.isDone}">{{ todo.item }}</span>
+            <button v-on:click="deleteItem(i)">削除</button>
+          </li>
+        </ul>
+      </section>
+      <hr />
+      <!-- <p>{{ $data }}</p> -->
 
-    <p>{{ reverseMessage }}</p>
-    <input type="text" v-model="basePrice">
-    <input type="text" v-model="includeTaxPrice">
-  </div>
+      <p>{{ reverseMessage }}</p>
 
-  <script src="https://unpkg.com/vue@3.1.5"></script>
-  <script src="./js/index.js"></script>
-</body>
+      <section>
+        <h2>税金計算（getter,setter）</h2>
+        <input type="text" v-model="basePrice" />
+        <input type="text" v-model="includeTaxPrice" />
+      </section>
+      <hr />
+
+      <section>
+        <h2>監視プロパティ(watch)</h2>
+        <div>
+          <p><input type="text" v-model="km" />km</p>
+          <p><input type="text" v-model="m" />m</p>
+        </div>
+        <div>
+          <ul>
+            <li v-for="color in colors">{{ color.name }}</li>
+          </ul>
+          <button v-on:click="onClick">変更する</button>
+        </div>
+      </section>
+      <hr />
+    </div>
+
+    <script src="https://unpkg.com/vue@3.1.5"></script>
+    <script src="./js/index.js"></script>
+  </body>
 </html>
