@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <label for="checkbox">{{ checked }}</label>
+      <!-- チェックボックス単体 -->
+      <!-- <input type="checkbox" id="checkbox" v-model="checked" /> -->
+      <!-- チェックボックス複数 -->
+      <label for="red">Red</label>
+      <input type="checkbox" id="red" value="Red" v-model="colors" />
+      <label for="green">Green</label>
+      <input type="checkbox" id="green" value="Green" v-model="colors" />
+      <label for="blue">Blue</label>
+      <input type="checkbox" id="blue" value="Blue" v-model="colors" />
+      <p>{{ colors }}</p>
+      <script src="https://unpkg.com/vue@3.1.5"></script>
+      <script src="https://unpkg.com/axios@0.21.1/dist/axios.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.js"></script>
+      <script src="./index.js"></script>
+    </div>
+  </body>
+</html>
