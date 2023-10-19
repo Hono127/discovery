@@ -24,6 +24,7 @@ export const GET = async (req: Request, res: NextResponse) => {
   }
 };
 
+// あああああ
 export const GET = async (req: Request, res: NextResponse) => {
   try {
     await main();
